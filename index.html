@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- ANTEPRIMA PER WHATSAPP E SOCIAL CON LA TUA FOTO -->
+    <!-- ANTEPRIMA PER WHATSAPP E SOCIAL -->
     <title>Invito 1° Compleanno - Ambra, Elena</title>
     <meta property="og:title" content="Invito 1° Compleanno - Ambra, Elena 🎈">
     <meta property="og:description" content="Ti aspetto per festeggiare insieme! Mercoledì 23 Settembre h 19:30 presso Dreem Spazio Eventi. Clicca per confermare la presenza.">
@@ -28,6 +28,13 @@
             padding: 0;
             overflow: hidden;
             touch-action: manipulation;
+            
+            /* SFONDO: Bimba che soffia bolle con filtro rosa/bianco */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 214, 232, 0.85)), 
+                url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1080&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         .font-title { font-family: 'Mali', 'Fredoka', cursive, sans-serif; }
@@ -86,7 +93,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-[#FFF8E7] via-[#FFD6E8] to-[#E9D5FF] flex flex-col justify-between items-center p-3 select-none relative font-title">
+<body class="flex flex-col justify-between items-center p-3 select-none relative font-title">
 
     <div id="bubbles-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
@@ -151,7 +158,8 @@
                 <button type="button" onclick="inviaWhatsApp('393500109387', 'Annachiara')" class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2 font-title">
                     <i class="fa-solid fa-paper-plane text-base"></i> Conferma ad Annachiara
                 </button>
-                <button type="button" onclick="inviaWhatsApp('393500109387', 'Rosario')" class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2 font-title">
+                <!-- QUI HO CORRETTO IL TUO NUMERO -->
+                <button type="button" onclick="inviaWhatsApp('393388385166', 'Rosario')" class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2 font-title">
                     <i class="fa-solid fa-paper-plane text-base"></i> Conferma a Rosario
                 </button>
                 <button type="button" onclick="chiudiModale()" class="w-full bg-[#F3F4F6] text-gray-700 font-bold py-3 px-4 rounded-2xl text-sm font-title mt-2">
