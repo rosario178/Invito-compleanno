@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it" class="h-full overflow-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Invito 1° Compleanno - Ambra, Elena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mali:wght@600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .font-title { font-family: 'Mali', 'Fredoka', cursive, sans-serif; }
+        .font-body { font-family: 'Quicksand', sans-serif; }
+
+        .holo-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 32% 28%,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 195, 230, 0.55) 25%,
+                rgba(160, 230, 255, 0.6) 55%,
+                rgba(220, 165, 255, 0.7) 80%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
+            box-shadow: 
+                inset -5px -5px 14px rgba(236, 72, 153, 0.5),
+                inset 5px 5px 14px rgba(6, 182, 212, 0.5),
+                0 8px 20px rgba(192, 38, 211, 0.25);
+            backdrop-filter: blur(1px);
+            animation: floatAndWobble var(--duration) linear infinite;
+            animation-delay: var(--delay);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .holo-bubble::before {
+            content: '';
+            position: absolute;
+            top: 10%; left: 14%; width: 28%; height: 20%;
+            border-radius: 50%; background: rgba(255, 255, 255, 0.95);
+            transform: rotate(-30deg);
+        }
+
+        .holo-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 12%; right: 16%; width: 18%; height: 12%;
+            border-radius: 50%; background: rgba(255, 255, 255, 0.75);
+            transform: rotate(-30deg);
+        }
+
+        @keyframes floatAndWobble {
+            0% { transform: translateY(105vh) translateX(0) scale(0.7) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.95; }
+            50% { transform: translateY(50vh) translateX(var(--drift)) scale(1.1) rotate(180deg); }
+            90% { opacity: 0.95; }
+            100% { transform: translateY(-15vh) translateX(0) scale(1.25) rotate(360deg); opacity: 0; }
+        }
+
+        .bubble-pop {
+            transform: scale(1.6) !important;
+            opacity: 0 !important;
+            transition: all 0.15s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#FFF8E7] via-[#FFD6E8] to-[#E9D5FF] flex flex-col justify-between items-center p-3 select-none relative font-title">
+
+    <div id="bubbles-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <main class="relative z-10 w-full max-w-sm h-full flex flex-col justify-between items-center py-2 text-center">
+        <header class="flex flex-col items-center my-auto">
+            <p class="text-xs sm:text-sm font-bold tracking-widest text-[#D81B60] uppercase drop-shadow-sm mb-0.5">
+                IL MIO PRIMO COMPLEANNO
+            </p>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#D81B60] tracking-tight leading-none drop-shadow-md my-0.5">
+                AMBRA, ELENA
+            </h1>
+            <p class="text-sm sm:text-base font-bold text-[#880E4F] opacity-90 mt-0.5">
+                Ti aspetto per festeggiare insieme
+            </p>
+        </header>
+
+        <div class="bg-white/85 backdrop-blur-md rounded-2xl py-3 px-4 w-full shadow-lg border border-white/90 my-auto">
+            <p class="text-base sm:text-lg font-bold text-[#D81B60] uppercase leading-tight">
+                MERCOLEDÌ 23 SETTEMBRE
+            </p>
+            <p class="text-sm font-bold text-[#880E4F] mb-2">H. 19:30</p>
+            <button onclick="salvaInCalendario()" class="inline-flex items-center gap-2 bg-[#FCE4EC] hover:bg-[#F8BBD0] text-[#D81B60] font-bold py-1.5 px-4 rounded-full shadow-sm text-xs border border-pink-200">
+                <i class="fa-regular fa-calendar-plus text-sm"></i> Salva nel Calendario
+            </button>
+        </div>
+
+        <div class="bg-white/85 backdrop-blur-md rounded-2xl py-3 px-4 w-full shadow-lg border border-white/90 my-auto">
+            <p class="text-xs font-bold text-[#880E4F] uppercase tracking-wider">Presso</p>
+            <p class="text-base sm:text-lg font-bold text-[#D81B60] uppercase leading-tight">DREEM SPAZIO EVENTI</p>
+            <p class="text-[11px] sm:text-xs font-bold text-[#880E4F] opacity-80 mb-2">VIA DEL COMMERCIO, BELLIZZI (SA)</p>
+            <button onclick="apriMappa()" class="inline-flex items-center gap-2 bg-[#AB47BC] hover:bg-[#8E24AA] text-white font-bold py-1.5 px-5 rounded-full shadow-md text-xs">
+                <i class="fa-solid fa-location-dot text-sm"></i> Apri Mappa
+            </button>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-sm rounded-full py-1.5 px-4 w-full shadow-sm my-auto border border-white/60">
+            <p class="text-[11px] sm:text-xs font-bold text-[#D81B60]">
+                È gradita conferma entro il 16 Settembre
+            </p>
+        </div>
+
+        <div class="w-full my-auto">
+            <button onclick="apriModale()" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-base sm:text-lg font-bold py-3.5 px-6 rounded-full shadow-xl flex items-center justify-center gap-2.5 border-2 border-white/50">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Conferma Presenza
+            </button>
+        </div>
+    </main>
+
+    <div id="modal-rsvp" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-xs sm:max-w-sm p-6 shadow-2xl relative text-center font-body">
+            <h2 class="text-2xl font-bold text-[#D81B60] font-title mb-4">In quanti sarete?</h2>
+
+            <div class="bg-[#F8F9FA] rounded-2xl p-3 flex items-center justify-between border border-gray-100 shadow-inner mb-5">
+                <button type="button" onclick="cambiaNumero(-1)" style="width: 44px; height: 44px; border-radius: 50%; background-color: #FCE4EC; color: #D81B60; font-weight: bold; font-size: 24px; border: none; cursor: pointer;">-</button>
+                <span id="display-numero" class="text-3xl font-extrabold text-gray-800 font-title px-4">2</span>
+                <button type="button" onclick="cambiaNumero(1)" style="width: 44px; height: 44px; border-radius: 50%; background-color: #FCE4EC; color: #D81B60; font-weight: bold; font-size: 24px; border: none; cursor: pointer;">+</button>
+            </div>
+
+            <p class="text-xs font-semibold text-gray-500 mb-4">A chi vuoi inviare la conferma?</p>
+
+            <div class="space-y-2.5">
+                <button type="button" onclick="inviaWhatsApp('393500109387', 'Annachiara')" class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2 font-title">
+                    <i class="fa-solid fa-paper-plane text-base"></i> Conferma ad Annachiara
+                </button>
+                <button type="button" onclick="inviaWhatsApp('393500109387', 'Rosario')" class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2 font-title">
+                    <i class="fa-solid fa-paper-plane text-base"></i> Conferma a Rosario
+                </button>
+                <button type="button" onclick="chiudiModale()" class="w-full bg-[#F3F4F6] text-gray-700 font-bold py-3 px-4 rounded-2xl text-sm font-title mt-2">
+                    Annulla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let numeroPersone = 2;
+        function cambiaNumero(delta) {
+            numeroPersone += delta;
+            if (numeroPersone < 1) numeroPersone = 1;
+            if (numeroPersone > 20) numeroPersone = 20;
+            document.getElementById('display-numero').innerText = numeroPersone;
+        }
+
+        const container = document.getElementById('bubbles-container');
+        for (let i = 0; i < 60; i++) { createBubble(true); }
+
+        function createBubble(initial = false) {
+            const bubble = document.createElement('div');
+            bubble.className = 'holo-bubble';
+            const size = Math.random() * 80 + 20;
+            const left = Math.random() * 95;
+            const duration = Math.random() * 8 + 6;
+            const delay = initial ? -Math.random() * duration : 0;
+            const drift = (Math.random() - 0.5) * 90;
+
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}%`;
+            bubble.style.setProperty('--duration', `${duration}s`);
+            bubble.style.setProperty('--delay', `${delay}s`);
+            bubble.style.setProperty('--drift', `${drift}px`);
+
+            bubble.addEventListener('click', (e) => {
+                e.stopPropagation();
+                bubble.classList.add('bubble-pop');
+                setTimeout(() => { bubble.remove(); createBubble(false); }, 150);
+            });
+            container.appendChild(bubble);
+        }
+
+        function apriModale() { document.getElementById('modal-rsvp').classList.remove('hidden'); }
+        function chiudiModale() { document.getElementById('modal-rsvp').classList.add('hidden'); }
+
+        function inviaWhatsApp(numeroTelefono, nomeDestinatario) {
+            const testopersone = numeroPersone === 1 ? "1 persona" : `${numeroPersone} persone`;
+            const messaggio = `Ciao ${nomeDestinatario}! Confermo la presenza per ${testopersone} al primo compleanno di Ambra, Elena 🎉`;
+            window.open(`https://wa.me/${numeroTelefono}?text=${encodeURIComponent(messaggio)}`, '_blank');
+            chiudiModale();
+        }
+
+        function apriMappa() {
+            window.open('https://www.google.com/maps/search/?api=1&query=DREEM+SPAZIO+EVENTI+Via+del+Commercio+Bellizzi+SA', '_blank');
+        }
+
+        function salvaInCalendario() {
+            const titolo = encodeURIComponent("1° Compleanno Ambra, Elena");
+            const dettagli = encodeURIComponent("Festeggiamo insieme il primo compleanno presso Dreem Spazio Eventi!");
+            const luogo = encodeURIComponent("Dreem Spazio Eventi, Via del Commercio, Bellizzi (SA)");
+            window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titolo}&dates=20260923T193000Z/20260923T230000Z&details=${dettagli}&location=${luogo}`, '_blank');
+        }
+    </script>
+</body>
+</html>
